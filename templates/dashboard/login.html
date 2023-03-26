@@ -1,0 +1,76 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | Smart Lockout Tagout System</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="{% static 'js\bootstrap.bundle.min.js' %}"></script>
+  <style>
+    .form-control::placeholder {
+      font-size: 14px; /* adjust the size to your preference */
+    }
+  </style>
+  {% bootstrap_css %}
+</head>
+<body style="background-color: rgb(38,40,61);">
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-3 d-none d-md-block bg-dark sidebar" style="background-color:rgb(84, 86, 120); height: 100vh;">
+        <div class="d-flex flex-column h-100 justify-content-center align-items-center">
+          <img class="logo img-fluid" src="{% static 'images/proloto.png' %}" alt="logo.png">
+          <h6 class="description" style="color: aliceblue;">Smart Lockout Tagout System</h6>
+        </div>
+      </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-8 px-4">
+        <div class="row justify-content-center text-center" style="padding-top: 140px;">
+          <div class="col-md-6">
+            <form method='POST' class="text-left">
+              {% csrf_token %}
+              <h6 class="title mb-3" style="color: aliceblue;">Login To Your Account</h6>
+              <div class="form-group">
+                <label for="username" style="color: aliceblue;">Username</label>
+                <input type="text" name="username" placeholder="Type your Username" class="form-control form-control-lg" style="font-size: 1rem;" required>
+              </div>
+              <div class="form-group">
+                <label for="password" style="color: aliceblue;">Password</label>
+                <div class="input-group">
+                  <input type="password" name="password" placeholder="Type your password" id="password" class="form-control" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-eye" aria-hidden="true" id="togglePassword"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <a href="{% url 'dashboard:forget' %}">Forget Password?</a> 
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-block">Login</button>
+                <div style="text-align: center; color: aliceblue;">
+                    {% for m in messages %}
+                    <h7>{{m}}</h7>
+                    {% endfor %}
+              </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  {% bootstrap_javascript %}
+  <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    togglePassword.addEventListener('click', function (e) {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      this.classList.toggle('fa-eye-slash');
+      this.classList.toggle('fa-eye');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"manasi": {"password": "4321", "role": "admin", "sc": "11SGI"}, "sharon": {"password": "1234#", "role": "viewer", "sc": "33SGI"}, "dhana": {"password": "1234$", "role": "contributor", "sc": "44SGI"}}

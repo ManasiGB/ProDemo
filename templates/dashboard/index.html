@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="d-flex justify-content-center">
+  <div class="p-3 bg-danger text-white flex-fill">
+    Flexbox 1
+  </div>
+  <div class="p-3 bg-primary text-white flex-fill d-flex flex-column">
+    <div class="d-flex">
+      <div class="p-3 bg-secondary text-white flex-fill">
+        Column 1
+      </div>
+      <div class="p-3 bg-info text-white flex-fill">
+        Column 2
+      </div>
+    </div>
+    <div class="p-3 bg-secondary text-white flex-fill mt-3">
+      Row 2
+    </div>
+  </div>
+  <div class="p-3 bg-success text-white flex-fill">
+    Flexbox 3
+  </div>
+  <div class="p-3 bg-danger text-white flex-fill d-flex flex-column">
+    <div class="d-flex">
+      <div class="p-3 bg-secondary text-white flex-fill">
+        Column 1
+      </div>
+      <div class="p-3 bg-info text-white flex-fill">
+        Column 2
+      </div>
+    </div>
+    <div class="p-3 bg-secondary text-white flex-fill mt-3">
+      Row 2
+    </div>
+  </div> 
+  <div class="p-3 bg-purple text-white flex-fill">
+    Flexbox 5
+  </div>
+</div>
+{% endblock %}
